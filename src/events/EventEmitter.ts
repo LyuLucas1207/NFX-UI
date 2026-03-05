@@ -1,23 +1,23 @@
 /**
  * 通用事件发射器（按事件名注册/注销/触发）
  * Generic event emitter: subscribe, unsubscribe, and emit by event name.
- * PayloadMap 支持：void（无参）、单类型（单参）、元组（多参）。
  *
- * @example 无 PayloadMap（全部无参）
+ * 不传 PayloadMap 时默认 PayloadMap = Record<E, unknown>，每个事件可无参或单参 (unknown)，通用。
+ * 传 PayloadMap 时可精确到：void（无参）、单类型（单参）、元组（多参）。
+ *
+ * @example 不传 PayloadMap（通用：无参或单参均可）
  * ```ts
  * const events = defineEvents({ A: "a", B: "b" });
  * class Em extends EventEmitter<EventNamesOf<typeof events>> { constructor() { super(events); } }
- * const em = new Em(); em.on(events.A, () => {}); em.emit(events.A);
+ * const em = new Em();
+ * em.on(events.A, () => {}); em.emit(events.A);
+ * em.on(events.B, (x) => console.log(x)); em.emit(events.B, data);
  * ```
- * @example 单参
+ * @example 传 PayloadMap（严格单参/多参）
  * ```ts
- * type Map = { FOO: string };
- * class Em extends EventEmitter<"FOO", Map> { ... }
- * em.on(events.FOO, (x) => console.log(x)); em.emit(events.FOO, "hi");
- * ```
- * @example 多参（PayloadMap[K] 为元组）
- * ```ts
- * type Map = { LOG: [string, number] };
+ * type Map = { FOO: string; LOG: [string, number] };
+ * class Em extends EventEmitter<"FOO"|"LOG", Map> { ... }
+ * em.on(events.FOO, (x) => {}); em.emit(events.FOO, "hi");
  * em.on(events.LOG, (msg, level) => {}); em.emit(events.LOG, "ok", 1);
  * ```
  */
@@ -27,8 +27,18 @@ import type { Defined } from "@/types";
 /** 内部存储用回调类型。Internal storage type for listeners. */
 type EventCallback<Args extends unknown[] = unknown[]> = (...args: Args) => void;
 
-/** 将 PayloadMap[K] 规范为参数元组：void→[]，单类型 T→[T]，已是元组则不变。Normalize payload to args tuple for emit/on. */
-type ToArgs<P> = P extends void ? [] : P extends unknown[] ? P : [P];
+/**
+ * 将 PayloadMap[K] 规范为参数元组。
+ * void→[]；unknown（默认/未指定 payload 类型）→ [] | [unknown]（无参或单参，通用）；单类型 T→[T]；元组→不变。
+ * Normalize payload to args: void→[]; unknown (default)→optional one arg; single T→[T]; tuple→unchanged.
+ */
+type ToArgs<P> = P extends void
+  ? []
+  : unknown extends P
+    ? [] | [P]
+    : P extends unknown[]
+      ? P
+      : [P];
 
 /** 由 defineEvents 返回的「已规范事件名对象」类型；constructor 只接受此类型。 */
 type DefinedEvents<T extends Record<string, string>> = Defined<T, "events">;
@@ -68,7 +78,7 @@ function createListenersMap<E extends string>(eventNames: readonly E[]): Record<
  *
  * @param events - 须为 defineEvents(...) 的返回值（DefinedEvents）。Must be the return value of defineEvents(...) (DefinedEvents).
  */
-class EventEmitter<E extends string, PayloadMap extends Record<E, unknown> = Record<E, void>> {
+class EventEmitter<E extends string, PayloadMap extends Record<E, unknown> = Record<E, unknown>> {
   private listeners: Record<E, Set<EventCallback>>;
 
   constructor(events: DefinedEvents<Record<string, E>>) {
