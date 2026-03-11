@@ -1,3 +1,5 @@
+import type { Array } from "@/types";
+
 /**
  * 按 id 将 items 合并进数组：insert 仅插入新 id，upsert 覆盖同 id 并插入新 id；可 prepend 或 append
  * Merge items into array by id: insert = only new ids, upsert = overwrite same id + insert new; place = prepend | append.
@@ -8,7 +10,7 @@
  * @param mode - insert 不覆盖已有 id；upsert 覆盖同 id
  * @returns 合并后的新数组
  */
-export function mergeById<T>(arr: T[], items: T[], idOf: (x: T) => string, place: "prepend" | "append", mode: "insert" | "upsert") {
+export function mergeById<T>(arr: Array<T>, items: Array<T>, idOf: (x: T) => string, place: "prepend" | "append", mode: "insert" | "upsert") {
   if (items.length === 0) return arr;
 
   switch (mode) {
@@ -19,7 +21,7 @@ export function mergeById<T>(arr: T[], items: T[], idOf: (x: T) => string, place
   }
 }
 
-function insertUnique<T>(arr: T[], items: T[], idOf: (x: T) => string, place: "prepend" | "append") {
+function insertUnique<T>(arr: Array<T>, items: Array<T>, idOf: (x: T) => string, place: "prepend" | "append") {
   const seen = new Set(arr.map(idOf));
 
   const toInsert = items.filter((x) => {
@@ -33,7 +35,7 @@ function insertUnique<T>(arr: T[], items: T[], idOf: (x: T) => string, place: "p
   return place === "prepend" ? [...toInsert, ...arr] : [...arr, ...toInsert];
 }
 
-function upsertArray<T>(arr: T[], items: T[], idOf: (x: T) => string, place: "prepend" | "append") {
+function upsertArray<T>(arr: Array<T>, items: Array<T>, idOf: (x: T) => string, place: "prepend" | "append") {
   const idxById = new Map<string, number>();
   arr.forEach((x, i) => idxById.set(idOf(x), i));
 
@@ -53,7 +55,7 @@ function upsertArray<T>(arr: T[], items: T[], idOf: (x: T) => string, place: "pr
   }
 
   // Insert: elements with the same id are replaced with the real items
-  const toInsert: T[] = [];
+  const toInsert: Array<T> = [];
   for (const it of items) {
     const id = idOf(it);
     if (!idxById.has(id)) toInsert.push(it);
@@ -74,7 +76,7 @@ function upsertArray<T>(arr: T[], items: T[], idOf: (x: T) => string, place: "pr
  * @param idOf - 取 id 的函数
  * @returns 若无变化返回原数组，否则返回新数组
  */
-export function pruneArray<T>(arr: T[], ids: ReadonlySet<string>, idOf: (x: T) => string) {
+export function pruneArray<T>(arr: Array<T>, ids: ReadonlySet<string>, idOf: (x: T) => string) {
   let changed = false;
   const next = arr.filter((v) => {
     const keep = !ids.has(idOf(v));

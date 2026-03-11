@@ -94,7 +94,7 @@ export function safeOr<T, D>(value: Nilable<T>, defaultValue: D): T | D {
  * @returns 若为 null、undefined 或 NaN 则 undefined，否则数字 (undefined if null/undefined/NaN, otherwise number)
  * @example safeNum(product.price) // 用于严格「有值才用」的场景
  */
-export function safeNum(value: number | null | undefined): Maybe<number> {
+export function safeNum(value: Nilable<number>): Maybe<number> {
   if (value === null || value === undefined) return undefined;
   const n = Number(value);
   return Number.isNaN(n) ? undefined : n;

@@ -47,7 +47,7 @@ type Stringable<T extends string> = T | "";
 type Objectable<T extends Record<string, unknown>> = T | {};
 
 /**
- * 可为空数组；T 为元素类型，等价于 Array<T> | []。
+ * 可为空数组；T 为元素类型，等价于 ArrayType<T> | []。
  * Arrayable: T[] | []，T 为数组元素类型。
  * @example Arrayable<string> => string[] | []
  */
