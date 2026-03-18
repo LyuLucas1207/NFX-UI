@@ -1,11 +1,13 @@
 import type { ReactNode } from "react";
 
-import { memo } from "react";
+import { Suspense, lazy, memo } from "react";
 
-import { LetterGlitchBackground, PixelBlastBackground, SquareBackground, WaveBackground } from "@/designs/animations";
+import { LetterGlitchBackground, SquareBackground, WaveBackground } from "@/designs/animations";
 import { DashboardBackgroundEnum } from "@/preference";
 
 import styles from "./styles.module.css";
+
+const LazyPixelBlast = lazy(() => import("@/designs/animations/PixelBlast"));
 
 interface BackgroundProps {
   children: ReactNode;
@@ -37,9 +39,11 @@ const Background = memo(({ children, background }: BackgroundProps) => {
         );
       case DashboardBackgroundEnum.PIXEL_BLAST:
         return (
-          <div className={styles.pixelBlastWrapper}>
-            <PixelBlastBackground />
-          </div>
+          <Suspense fallback={null}>
+            <div className={styles.pixelBlastWrapper}>
+              <LazyPixelBlast />
+            </div>
+          </Suspense>
         );
       case DashboardBackgroundEnum.NONE:
       default:

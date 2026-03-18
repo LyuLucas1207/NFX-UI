@@ -12,7 +12,6 @@ export * from "./colors";
 export * from "./email";
 export * from "./form";
 export * from "./object";
-export * from "./phone";
 export * from "./polling";
 export * from "./price";
 export * from "./promise";
