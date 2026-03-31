@@ -1,113 +1,125 @@
 import type { ColorTheme } from "../../types";
 
-// 基于 ReX-App 的 light.ts 红色系配色创建的 default 主题
+/**
+ * Default — Crimson Red
+ * 品牌主色：鲜红 #DC2626，搭配 Tailwind gray 中性色。
+ * 适合 IoT 仪表盘的告警/操作视觉调性。
+ */
 export const defaultColorTheme: ColorTheme = {
   name: "default",
   displayName: "Default",
   variables: {
-    // 基础颜色 - 红色系
-    primary: "rgb(250, 30, 22)", // #FA1E16 鲜红色
-    primaryLight: "rgb(255, 120, 120)", // 浅红色
-    primaryFg: "#ffffff",
-    success: "rgb(62, 168, 30)", // 浅绿色（对比色）
-    successLight: "rgb(220, 255, 210)",
-    info: "rgb(255, 160, 150)", // 亮橙红
-    infoLight: "rgb(255, 200, 180)",
-    warning: "rgb(248, 104, 7)", // 明亮橙色
-    warningLight: "rgb(255, 140, 60)",
-    danger: "rgb(211, 17, 11)", // 深红色
-    dangerLight: "rgb(243, 70, 64)",
+    primary: "#DC2626",
+    primaryHover: "#B91C1C",
+    primaryLight: "#FCA5A5",
+    primaryBg: "#FEF2F2",
+    primaryRgb: "220, 38, 38",
+    primaryTransparent: "rgba(220, 38, 38, 0.15)",
+    primaryFg: "#FFFFFF",
 
-    // 背景色 - 浅色系
-    bg: "rgb(250, 250, 250)", // 纯白
-    bg2: "rgb(245, 245, 245)",
-    bg3: "rgb(226, 224, 224)",
-    bg4: "rgb(207, 207, 207)",
+    success: "#16A34A",
+    successLight: "#DCFCE7",
+    successRgb: "22, 163, 74",
+    info: "#2563EB",
+    infoLight: "#DBEAFE",
+    infoRgb: "37, 99, 235",
+    warning: "#D97706",
+    warningLight: "#FEF3C7",
+    warningRgb: "217, 119, 6",
+    danger: "#EF4444",
+    dangerLight: "#FEE2E2",
+    dangerRgb: "239, 68, 68",
 
-    // 边框色
-    border: "rgb(250, 250, 250)",
-    border2: "rgb(245, 245, 245)",
-    border3: "rgb(226, 224, 224)",
-    border4: "rgb(207, 207, 207)",
-    border5: "rgb(136, 136, 136)",
+    bg: "#FFFFFF",
+    bg2: "#F9FAFB",
+    bg3: "#F3F4F6",
+    bg4: "#E5E7EB",
+    bgSecondary: "#FEF2F2",
 
-    // 文字色
-    fg: "rgb(136, 136, 136)", // 灰色文字
-    fgText: "rgb(22, 21, 21)", // 黑色文字
-    fgHeading: "rgb(0, 0, 0)", // 纯黑标题
-    fgHighlight: "rgb(250, 30, 22)", // 红色高亮
-    fgOnPrimary: "rgb(250, 250, 250)", // 暂时等于 bg
+    border: "#F3F4F6",
+    border2: "#E5E7EB",
+    border3: "#D1D5DB",
+    border4: "#9CA3AF",
+    border5: "#6B7280",
+    borderHover: "#DC2626",
 
-    // 分隔符
-    separator: "rgb(226, 224, 224)",
+    fg: "#9CA3AF",
+    fgText: "#1F2937",
+    fgHeading: "#111827",
+    fgHighlight: "#DC2626",
+    fgMuted: "#6B7280",
+    fgOnPrimary: "#FFFFFF",
 
-    // 扩展配置 - Temperature
+    separator: "#E5E7EB",
+
+    overlay: "rgba(0, 0, 0, 0.5)",
+    shadow: "rgba(0, 0, 0, 0.08)",
+    ring: "#DC2626",
+
+    chart1: "#DC2626",
+    chart2: "#2563EB",
+    chart3: "#16A34A",
+    chart4: "#D97706",
+    chart5: "#7C3AED",
+
     temperature: {
-      arcFill: [
-        "rgb(255, 210, 210)", // 非常浅的淡红
-        "rgb(255, 200, 160)", // 柔和杏色
-        "rgb(255, 160, 150)", // 更偏亮橙红
-        "rgb(255, 120, 120)", // 浅红
-        "rgb(250, 30, 22)", // 主红色
-      ],
-      arcEmpty: "rgb(245, 245, 245)",
-      thumbBg: "rgb(245, 245, 245)",
-      thumbBorder: "rgb(250, 30, 22)",
+      arcFill: ["#FEE2E2", "#FCA5A5", "#F87171", "#EF4444", "#DC2626"],
+      arcEmpty: "#F3F4F6",
+      thumbBg: "#FFFFFF",
+      thumbBorder: "#DC2626",
     },
 
-    // Solar
     solar: {
-      gradientLeft: "rgb(250, 30, 22)",
-      gradientRight: "rgb(248, 104, 7)",
-      shadowColor: "rgba(250, 30, 22, 0.1)",
-      secondSeriesFill: "rgb(245, 245, 245)",
+      gradientLeft: "#DC2626",
+      gradientRight: "#F97316",
+      shadowColor: "rgba(220, 38, 38, 0.12)",
+      secondSeriesFill: "#F3F4F6",
     },
 
     traffic: {
-      tooltipBg: "rgb(250, 250, 250)",
-      tooltipBorderColor: "rgb(245, 245, 245)",
-      tooltipTextColor: "rgb(22, 21, 21)",
-      yAxisSplitLine: "rgb(226, 224, 224)",
-      lineBg: "rgb(207, 207, 207)",
-      itemColor: "rgb(207, 207, 207)",
-      itemBorderColor: "rgb(207, 207, 207)",
-      itemEmphasisBorderColor: "rgb(250, 30, 22)",
+      tooltipBg: "#FFFFFF",
+      tooltipBorderColor: "#E5E7EB",
+      tooltipTextColor: "#1F2937",
+      yAxisSplitLine: "#F3F4F6",
+      lineBg: "#E5E7EB",
+      itemColor: "#D1D5DB",
+      itemBorderColor: "#D1D5DB",
+      itemEmphasisBorderColor: "#DC2626",
       shadowLineDarkBg: "rgba(0, 0, 0, 0)",
       shadowLineShadow: "rgba(0, 0, 0, 0)",
-      gradFrom: "rgb(245, 245, 245)",
-      gradTo: "rgb(245, 245, 245)",
+      gradFrom: "#FEF2F2",
+      gradTo: "#FFFFFF",
     },
 
     electricity: {
-      tooltipBg: "rgb(250, 250, 250)",
-      tooltipLineColor: "rgb(22, 21, 21)",
-      tooltipBorderColor: "rgb(245, 245, 245)",
-      tooltipTextColor: "rgb(22, 21, 21)",
-      axisLineColor: "rgb(226, 224, 224)",
-      xAxisTextColor: "rgb(136, 136, 136)",
-      yAxisSplitLine: "rgb(226, 224, 224)",
-      itemBorderColor: "rgb(250, 30, 22)",
-      lineGradFrom: "rgb(250, 30, 22)",
-      lineGradTo: "rgb(248, 104, 7)",
-      lineShadow: "rgba(250, 30, 22, 0.2)",
-      areaGradFrom: "rgba(250, 30, 22, 0.1)",
-      areaGradTo: "rgba(250, 30, 22, 0.05)",
+      tooltipBg: "#FFFFFF",
+      tooltipLineColor: "#1F2937",
+      tooltipBorderColor: "#E5E7EB",
+      tooltipTextColor: "#1F2937",
+      axisLineColor: "#E5E7EB",
+      xAxisTextColor: "#6B7280",
+      yAxisSplitLine: "#F3F4F6",
+      itemBorderColor: "#DC2626",
+      lineGradFrom: "#DC2626",
+      lineGradTo: "#F97316",
+      lineShadow: "rgba(220, 38, 38, 0.2)",
+      areaGradFrom: "rgba(220, 38, 38, 0.1)",
+      areaGradTo: "rgba(220, 38, 38, 0.02)",
       shadowLineDarkBg: "rgba(0, 0, 0, 0)",
     },
 
     echarts: {
-      bg: "rgb(250, 250, 250)",
-      textColor: "rgb(22, 21, 21)",
-      axisLineColor: "rgb(136, 136, 136)",
-      splitLineColor: "rgb(226, 224, 224)",
-      itemHoverShadowColor: "rgba(250, 30, 22, 0.3)",
-      tooltipBackgroundColor: "rgb(250, 30, 22)",
+      bg: "#FFFFFF",
+      textColor: "#1F2937",
+      axisLineColor: "#9CA3AF",
+      splitLineColor: "#F3F4F6",
+      itemHoverShadowColor: "rgba(220, 38, 38, 0.25)",
+      tooltipBackgroundColor: "#DC2626",
     },
 
-    // ChartJS
     chartjs: {
-      axisLineColor: "rgb(226, 224, 224)",
-      textColor: "rgb(22, 21, 21)",
+      axisLineColor: "#E5E7EB",
+      textColor: "#1F2937",
     },
   },
 };

@@ -1,110 +1,125 @@
 import type { ColorTheme } from "../../types";
 
 /**
- * Coffee 主题 - 基于 8 色盘重新设计
- * 色盘：奶油 #F8F4E1 | 浅灰米 #E4E0E1 | 浅棕 #D6C0B3 | 中棕 #AB886D / #AF8F6F
- *       深棕 #74512D | 暗棕 #493628 | 最深 #543310
- * 深棕背景 + 奶油/米色文字，语义色保持棕/绿棕/红棕调
+ * Coffee — Warm Earth
+ * 深色暖棕，焦糖拿铁主色 #C49A6C。
+ * 深咖啡背景 + 奶油色文字，温暖舒适。
  */
 export const coffeeColorTheme: ColorTheme = {
   name: "coffee",
   displayName: "Coffee",
   variables: {
-    // 主色 - 奶油/拿铁系
-    primary: "#AF8F6F",
-    primaryLight: "#F8F4E1",
-    primaryFg: "#2a1f18",
+    primary: "#C49A6C",
+    primaryHover: "#A67C50",
+    primaryLight: "#E8D5C0",
+    primaryBg: "rgba(196, 154, 108, 0.1)",
+    primaryRgb: "196, 154, 108",
+    primaryTransparent: "rgba(196, 154, 108, 0.15)",
+    primaryFg: "#1A1209",
 
-    // 语义色 - 棕调配色（微调以协调）
-    success: "#6d8f72",
-    successLight: "#8aaa8e",
-    info: "#8a7a6a",
-    infoLight: "#a89888",
-    warning: "#b8926a",
-    warningLight: "#d4b896",
-    danger: "#a65d5d",
-    dangerLight: "#c07d7d",
+    success: "#6D9F72",
+    successLight: "#8DBE91",
+    successRgb: "109, 159, 114",
+    info: "#8A7968",
+    infoLight: "#A89888",
+    infoRgb: "138, 121, 104",
+    warning: "#D4A574",
+    warningLight: "#E8C9A0",
+    warningRgb: "212, 165, 116",
+    danger: "#C0392B",
+    dangerLight: "#D65A4A",
+    dangerRgb: "192, 57, 43",
 
-    // 背景 - 由深到浅：最深 → #543310 → #493628 → #74512D
-    bg: "#2e1a08",
-    bg2: "#543310",
-    bg3: "#493628",
-    bg4: "#74512D",
+    bg: "#1A1209",
+    bg2: "#28201A",
+    bg3: "#3A2E24",
+    bg4: "#4E3D30",
+    bgSecondary: "#28201A",
 
-    // 边框 - 深棕到浅米
-    border: "#493628",
-    border2: "#543310",
-    border3: "#74512D",
-    border4: "#AF8F6F",
-    border5: "#D6C0B3",
+    border: "#3A2E24",
+    border2: "#4E3D30",
+    border3: "#6B5744",
+    border4: "#8B7355",
+    border5: "#C49A6C",
+    borderHover: "#C49A6C",
 
-    // 文字
-    fg: "#AF8F6F",
-    fgText: "#F8F4E1",
-    fgHeading: "#F8F4E1",
-    fgHighlight: "#E4E0E1",
-    fgOnPrimary: "#2e1a08", // 暂时等于 bg
+    fg: "#8B7355",
+    fgText: "#F5E6D3",
+    fgHeading: "#FFF8F0",
+    fgHighlight: "#E8C9A0",
+    fgMuted: "#6B5744",
+    fgOnPrimary: "#1A1209",
 
-    separator: "#493628",
+    separator: "#3A2E24",
+
+    overlay: "rgba(0, 0, 0, 0.65)",
+    shadow: "rgba(0, 0, 0, 0.4)",
+    ring: "#C49A6C",
+
+    chart1: "#C49A6C",
+    chart2: "#6D9F72",
+    chart3: "#D4A574",
+    chart4: "#C0392B",
+    chart5: "#8A7968",
 
     temperature: {
-      arcFill: ["#AF8F6F", "#AB886D", "#D6C0B3", "#E4E0E1", "#F8F4E1"],
-      arcEmpty: "#543310",
-      thumbBg: "#493628",
-      thumbBorder: "#AF8F6F",
+      arcFill: ["#4E3D30", "#8B7355", "#A67C50", "#C49A6C", "#E8D5C0"],
+      arcEmpty: "#3A2E24",
+      thumbBg: "#28201A",
+      thumbBorder: "#C49A6C",
     },
 
     solar: {
-      gradientLeft: "#AF8F6F",
-      gradientRight: "#F8F4E1",
-      shadowColor: "rgba(0, 0, 0, 0.35)",
-      secondSeriesFill: "#493628",
+      gradientLeft: "#C49A6C",
+      gradientRight: "#E8D5C0",
+      shadowColor: "rgba(196, 154, 108, 0.25)",
+      secondSeriesFill: "#3A2E24",
     },
 
     traffic: {
-      tooltipBg: "#74512D",
-      tooltipBorderColor: "#AF8F6F",
-      tooltipTextColor: "#F8F4E1",
-      yAxisSplitLine: "#543310",
-      lineBg: "#493628",
-      itemColor: "#543310",
-      itemBorderColor: "#AF8F6F",
-      itemEmphasisBorderColor: "#F8F4E1",
+      tooltipBg: "#3A2E24",
+      tooltipBorderColor: "#6B5744",
+      tooltipTextColor: "#F5E6D3",
+      yAxisSplitLine: "#3A2E24",
+      lineBg: "#4E3D30",
+      itemColor: "#4E3D30",
+      itemBorderColor: "#6B5744",
+      itemEmphasisBorderColor: "#C49A6C",
       shadowLineDarkBg: "rgba(0, 0, 0, 0)",
       shadowLineShadow: "rgba(0, 0, 0, 0)",
-      gradFrom: "#493628",
-      gradTo: "#2e1a08",
+      gradFrom: "#3A2E24",
+      gradTo: "#28201A",
     },
 
     electricity: {
-      tooltipBg: "#543310",
-      tooltipLineColor: "#F8F4E1",
-      tooltipBorderColor: "#AF8F6F",
-      tooltipTextColor: "#F8F4E1",
-      axisLineColor: "#AF8F6F",
-      xAxisTextColor: "#AF8F6F",
-      yAxisSplitLine: "#543310",
-      itemBorderColor: "#AF8F6F",
-      lineGradFrom: "#AF8F6F",
-      lineGradTo: "#F8F4E1",
-      lineShadow: "rgba(175, 143, 111, 0.3)",
-      areaGradFrom: "#493628",
-      areaGradTo: "#2e1a08",
+      tooltipBg: "#3A2E24",
+      tooltipLineColor: "#F5E6D3",
+      tooltipBorderColor: "#6B5744",
+      tooltipTextColor: "#F5E6D3",
+      axisLineColor: "#4E3D30",
+      xAxisTextColor: "#8B7355",
+      yAxisSplitLine: "#3A2E24",
+      itemBorderColor: "#C49A6C",
+      lineGradFrom: "#C49A6C",
+      lineGradTo: "#E8D5C0",
+      lineShadow: "rgba(196, 154, 108, 0.25)",
+      areaGradFrom: "rgba(196, 154, 108, 0.12)",
+      areaGradTo: "rgba(196, 154, 108, 0.02)",
       shadowLineDarkBg: "rgba(0, 0, 0, 0)",
     },
 
     echarts: {
-      bg: "#2e1a08",
-      textColor: "#F8F4E1",
-      axisLineColor: "#AF8F6F",
-      splitLineColor: "#493628",
-      itemHoverShadowColor: "rgba(0, 0, 0, 0.4)",
-      tooltipBackgroundColor: "#543310",
+      bg: "#1A1209",
+      textColor: "#F5E6D3",
+      axisLineColor: "#8B7355",
+      splitLineColor: "#3A2E24",
+      itemHoverShadowColor: "rgba(196, 154, 108, 0.35)",
+      tooltipBackgroundColor: "#3A2E24",
     },
 
     chartjs: {
-      axisLineColor: "#AF8F6F",
-      textColor: "#F8F4E1",
+      axisLineColor: "#4E3D30",
+      textColor: "#F5E6D3",
     },
   },
 };

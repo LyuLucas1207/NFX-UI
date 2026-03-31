@@ -1,115 +1,125 @@
 import type { ColorTheme } from "../../types";
 
 /**
- * Dark 主题 - 重新设计
- * - 背景层级分明（base → surface → elevated）
- * - 边框可见且不刺眼
- * - 主色为蓝色强调，语义色适配深色背景
- * - 文字对比度符合可读性
+ * Dark — Amber Gold on Zinc
+ * 深色模式，琥珀金主色 + 锌灰背景。
+ * 暖色调暗色，层级分明，阅读舒适。
  */
 export const darkColorTheme: ColorTheme = {
   name: "dark",
   displayName: "Dark",
   variables: {
-    // 主色 - 金黄色/琥珀色
-    primary: "#d4a017",
-    primaryLight: "#eab308",
-    primaryFg: "#1a1a1a",
+    primary: "#D97706",
+    primaryHover: "#B45309",
+    primaryLight: "#FCD34D",
+    primaryBg: "rgba(217, 119, 6, 0.1)",
+    primaryRgb: "217, 119, 6",
+    primaryTransparent: "rgba(217, 119, 6, 0.15)",
+    primaryFg: "#18181B",
 
-    // 语义色 - 深色模式、无蓝色，info 用青绿区分
-    success: "#22c55e",
-    successLight: "#4ade80",
-    info: "#14b8a6",
-    infoLight: "#2dd4bf",
-    warning: "#eab308",
-    warningLight: "#facc15",
-    danger: "#ef4444",
-    dangerLight: "#f87171",
+    success: "#22C55E",
+    successLight: "#4ADE80",
+    successRgb: "34, 197, 94",
+    info: "#14B8A6",
+    infoLight: "#2DD4BF",
+    infoRgb: "20, 184, 166",
+    warning: "#EAB308",
+    warningLight: "#FACC15",
+    warningRgb: "234, 179, 8",
+    danger: "#EF4444",
+    dangerLight: "#F87171",
+    dangerRgb: "239, 68, 68",
 
-    // 背景色 - 明确层级（由深到浅）
-    bg: "#0f0f11",
-    bg2: "#18181b",
-    bg3: "#27272a",
-    bg4: "#3f3f46",
+    bg: "#09090B",
+    bg2: "#18181B",
+    bg3: "#27272A",
+    bg4: "#3F3F46",
+    bgSecondary: "#1C1917",
 
-    // 边框色 - 与背景区分，便于识别边界
-    border: "#18181b",
-    border2: "#27272a",
-    border3: "#3f3f46",
-    border4: "#52525b",
-    border5: "#71717a",
+    border: "#27272A",
+    border2: "#3F3F46",
+    border3: "#52525B",
+    border4: "#71717A",
+    border5: "#A1A1AA",
+    borderHover: "#D97706",
 
-    // 文字色 - 主文白、标题更亮、辅助文灰
-    fg: "#a1a1aa",
-    fgText: "#fafafa",
-    fgHeading: "#ffffff",
-    fgHighlight: "#fde047",
-    fgOnPrimary: "#0f0f11", // 暂时等于 bg
+    fg: "#A1A1AA",
+    fgText: "#FAFAFA",
+    fgHeading: "#FFFFFF",
+    fgHighlight: "#FDE047",
+    fgMuted: "#71717A",
+    fgOnPrimary: "#09090B",
 
-    // 分隔线
-    separator: "#27272a",
+    separator: "#27272A",
 
-    // 扩展配置 - Temperature
+    overlay: "rgba(0, 0, 0, 0.65)",
+    shadow: "rgba(0, 0, 0, 0.4)",
+    ring: "#D97706",
+
+    chart1: "#D97706",
+    chart2: "#22C55E",
+    chart3: "#14B8A6",
+    chart4: "#EF4444",
+    chart5: "#8B5CF6",
+
     temperature: {
-      arcFill: ["#d4a017", "#eab308", "#fcd34d", "#fde047", "#fde047"],
-      arcEmpty: "#27272a",
-      thumbBg: "#27272a",
-      thumbBorder: "#52525b",
+      arcFill: ["#92400E", "#B45309", "#D97706", "#EAB308", "#FDE047"],
+      arcEmpty: "#27272A",
+      thumbBg: "#27272A",
+      thumbBorder: "#D97706",
     },
 
-    // Solar
     solar: {
-      gradientLeft: "#d4a017",
-      gradientRight: "#eab308",
-      shadowColor: "rgba(0, 0, 0, 0.3)",
-      secondSeriesFill: "#27272a",
+      gradientLeft: "#D97706",
+      gradientRight: "#EAB308",
+      shadowColor: "rgba(217, 119, 6, 0.25)",
+      secondSeriesFill: "#27272A",
     },
 
     traffic: {
-      tooltipBg: "#27272a",
-      tooltipBorderColor: "#3f3f46",
-      tooltipTextColor: "#fafafa",
-      yAxisSplitLine: "#27272a",
-      lineBg: "#3f3f46",
-      itemColor: "#3f3f46",
-      itemBorderColor: "#52525b",
-      itemEmphasisBorderColor: "#eab308",
+      tooltipBg: "#27272A",
+      tooltipBorderColor: "#3F3F46",
+      tooltipTextColor: "#FAFAFA",
+      yAxisSplitLine: "#27272A",
+      lineBg: "#3F3F46",
+      itemColor: "#3F3F46",
+      itemBorderColor: "#52525B",
+      itemEmphasisBorderColor: "#EAB308",
       shadowLineDarkBg: "rgba(0, 0, 0, 0)",
       shadowLineShadow: "rgba(0, 0, 0, 0)",
-      gradFrom: "#27272a",
-      gradTo: "#18181b",
+      gradFrom: "#27272A",
+      gradTo: "#18181B",
     },
 
     electricity: {
-      tooltipBg: "#27272a",
-      tooltipLineColor: "#fafafa",
-      tooltipBorderColor: "#3f3f46",
-      tooltipTextColor: "#fafafa",
-      axisLineColor: "#3f3f46",
-      xAxisTextColor: "#a1a1aa",
-      yAxisSplitLine: "#27272a",
-      itemBorderColor: "#eab308",
-      lineGradFrom: "#d4a017",
-      lineGradTo: "#eab308",
-      lineShadow: "rgba(212, 160, 23, 0.35)",
-      areaGradFrom: "#27272a",
-      areaGradTo: "#18181b",
+      tooltipBg: "#27272A",
+      tooltipLineColor: "#FAFAFA",
+      tooltipBorderColor: "#3F3F46",
+      tooltipTextColor: "#FAFAFA",
+      axisLineColor: "#3F3F46",
+      xAxisTextColor: "#A1A1AA",
+      yAxisSplitLine: "#27272A",
+      itemBorderColor: "#EAB308",
+      lineGradFrom: "#D97706",
+      lineGradTo: "#EAB308",
+      lineShadow: "rgba(217, 119, 6, 0.3)",
+      areaGradFrom: "rgba(217, 119, 6, 0.12)",
+      areaGradTo: "rgba(217, 119, 6, 0.02)",
       shadowLineDarkBg: "rgba(0, 0, 0, 0)",
     },
 
     echarts: {
-      bg: "#18181b",
-      textColor: "#fafafa",
-      axisLineColor: "#52525b",
-      splitLineColor: "#27272a",
-      itemHoverShadowColor: "rgba(0, 0, 0, 0.4)",
-      tooltipBackgroundColor: "#27272a",
+      bg: "#18181B",
+      textColor: "#FAFAFA",
+      axisLineColor: "#52525B",
+      splitLineColor: "#27272A",
+      itemHoverShadowColor: "rgba(217, 119, 6, 0.35)",
+      tooltipBackgroundColor: "#27272A",
     },
 
-    // ChartJS
     chartjs: {
-      axisLineColor: "#3f3f46",
-      textColor: "#fafafa",
+      axisLineColor: "#3F3F46",
+      textColor: "#FAFAFA",
     },
   },
 };

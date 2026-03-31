@@ -1,107 +1,126 @@
 import type { ColorTheme } from "../../types";
 
-/** 麦田：在 default 基础上将白红色系改为金黄色系 */
+/**
+ * Wheat — Golden Harvest
+ * 浅色暖金，主色琥珀 #B45309。
+ * 暖奶油色背景 + 深棕文字，丰收质感。
+ * danger 使用独立红色，不与 primary 金色混淆。
+ */
 export const wheatColorTheme: ColorTheme = {
   name: "wheat",
   displayName: "麦田",
   variables: {
-    // 主色 - 金黄色系
-    primary: "rgb(201, 162, 39)", // #C9A227 金黄
-    primaryLight: "rgb(230, 200, 120)", // 浅金黄
-    primaryFg: "#ffffff",
-    success: "rgb(62, 168, 30)",
-    successLight: "rgb(220, 255, 210)",
-    info: "rgb(220, 180, 80)", // 暖金
-    infoLight: "rgb(255, 235, 180)",
-    warning: "rgb(218, 165, 32)", // 深金
-    warningLight: "rgb(255, 215, 120)",
-    danger: "rgb(180, 130, 20)", // 深褐金
-    dangerLight: "rgb(220, 180, 80)",
+    primary: "#B45309",
+    primaryHover: "#92400E",
+    primaryLight: "#FCD34D",
+    primaryBg: "#FFFBEB",
+    primaryRgb: "180, 83, 9",
+    primaryTransparent: "rgba(180, 83, 9, 0.12)",
+    primaryFg: "#FFFFFF",
 
-    // 背景色 - 浅色系（与 default 一致）
-    bg: "rgb(250, 250, 250)",
-    bg2: "rgb(245, 245, 245)",
-    bg3: "rgb(226, 224, 224)",
-    bg4: "rgb(207, 207, 207)",
+    success: "#16A34A",
+    successLight: "#DCFCE7",
+    successRgb: "22, 163, 74",
+    info: "#D97706",
+    infoLight: "#FEF3C7",
+    infoRgb: "217, 119, 6",
+    warning: "#CA8A04",
+    warningLight: "#FEF9C3",
+    warningRgb: "202, 138, 4",
+    danger: "#DC2626",
+    dangerLight: "#FEE2E2",
+    dangerRgb: "220, 38, 38",
 
-    border: "rgb(250, 250, 250)",
-    border2: "rgb(245, 245, 245)",
-    border3: "rgb(226, 224, 224)",
-    border4: "rgb(207, 207, 207)",
-    border5: "rgb(136, 136, 136)",
+    bg: "#FFFDF7",
+    bg2: "#FFF8E7",
+    bg3: "#FEF3C7",
+    bg4: "#FDE68A",
+    bgSecondary: "#FFFBEB",
 
-    fg: "rgb(136, 136, 136)",
-    fgText: "rgb(22, 21, 21)",
-    fgHeading: "rgb(0, 0, 0)",
-    fgHighlight: "rgb(201, 162, 39)", // 金黄高亮
-    fgOnPrimary: "rgb(250, 250, 250)", // 暂时等于 bg
+    border: "#FDE68A",
+    border2: "#FCD34D",
+    border3: "#FBBF24",
+    border4: "#D97706",
+    border5: "#92400E",
+    borderHover: "#B45309",
 
-    separator: "rgb(226, 224, 224)",
+    fg: "#92400E",
+    fgText: "#451A03",
+    fgHeading: "#1C0A00",
+    fgHighlight: "#B45309",
+    fgMuted: "#78350F",
+    fgOnPrimary: "#FFFFFF",
+
+    separator: "#FDE68A",
+
+    overlay: "rgba(0, 0, 0, 0.5)",
+    shadow: "rgba(0, 0, 0, 0.1)",
+    ring: "#B45309",
+
+    chart1: "#B45309",
+    chart2: "#16A34A",
+    chart3: "#2563EB",
+    chart4: "#DC2626",
+    chart5: "#7C3AED",
 
     temperature: {
-      arcFill: [
-        "rgb(255, 245, 210)",
-        "rgb(255, 235, 180)",
-        "rgb(255, 220, 150)",
-        "rgb(230, 200, 120)",
-        "rgb(201, 162, 39)",
-      ],
-      arcEmpty: "rgb(245, 245, 245)",
-      thumbBg: "rgb(245, 245, 245)",
-      thumbBorder: "rgb(201, 162, 39)",
+      arcFill: ["#FEF3C7", "#FCD34D", "#FBBF24", "#D97706", "#B45309"],
+      arcEmpty: "#FFF8E7",
+      thumbBg: "#FFFDF7",
+      thumbBorder: "#B45309",
     },
 
     solar: {
-      gradientLeft: "rgb(201, 162, 39)",
-      gradientRight: "rgb(218, 165, 32)",
-      shadowColor: "rgba(201, 162, 39, 0.1)",
-      secondSeriesFill: "rgb(245, 245, 245)",
+      gradientLeft: "#B45309",
+      gradientRight: "#D97706",
+      shadowColor: "rgba(180, 83, 9, 0.15)",
+      secondSeriesFill: "#FEF3C7",
     },
 
     traffic: {
-      tooltipBg: "rgb(250, 250, 250)",
-      tooltipBorderColor: "rgb(245, 245, 245)",
-      tooltipTextColor: "rgb(22, 21, 21)",
-      yAxisSplitLine: "rgb(226, 224, 224)",
-      lineBg: "rgb(207, 207, 207)",
-      itemColor: "rgb(207, 207, 207)",
-      itemBorderColor: "rgb(207, 207, 207)",
-      itemEmphasisBorderColor: "rgb(201, 162, 39)",
+      tooltipBg: "#FFFDF7",
+      tooltipBorderColor: "#FDE68A",
+      tooltipTextColor: "#451A03",
+      yAxisSplitLine: "#FEF3C7",
+      lineBg: "#FDE68A",
+      itemColor: "#FCD34D",
+      itemBorderColor: "#FCD34D",
+      itemEmphasisBorderColor: "#B45309",
       shadowLineDarkBg: "rgba(0, 0, 0, 0)",
       shadowLineShadow: "rgba(0, 0, 0, 0)",
-      gradFrom: "rgb(245, 245, 245)",
-      gradTo: "rgb(245, 245, 245)",
+      gradFrom: "#FFF8E7",
+      gradTo: "#FFFDF7",
     },
 
     electricity: {
-      tooltipBg: "rgb(250, 250, 250)",
-      tooltipLineColor: "rgb(22, 21, 21)",
-      tooltipBorderColor: "rgb(245, 245, 245)",
-      tooltipTextColor: "rgb(22, 21, 21)",
-      axisLineColor: "rgb(226, 224, 224)",
-      xAxisTextColor: "rgb(136, 136, 136)",
-      yAxisSplitLine: "rgb(226, 224, 224)",
-      itemBorderColor: "rgb(201, 162, 39)",
-      lineGradFrom: "rgb(201, 162, 39)",
-      lineGradTo: "rgb(218, 165, 32)",
-      lineShadow: "rgba(201, 162, 39, 0.2)",
-      areaGradFrom: "rgba(201, 162, 39, 0.1)",
-      areaGradTo: "rgba(201, 162, 39, 0.05)",
+      tooltipBg: "#FFFDF7",
+      tooltipLineColor: "#451A03",
+      tooltipBorderColor: "#FDE68A",
+      tooltipTextColor: "#451A03",
+      axisLineColor: "#FDE68A",
+      xAxisTextColor: "#78350F",
+      yAxisSplitLine: "#FEF3C7",
+      itemBorderColor: "#B45309",
+      lineGradFrom: "#B45309",
+      lineGradTo: "#D97706",
+      lineShadow: "rgba(180, 83, 9, 0.2)",
+      areaGradFrom: "rgba(180, 83, 9, 0.1)",
+      areaGradTo: "rgba(180, 83, 9, 0.02)",
       shadowLineDarkBg: "rgba(0, 0, 0, 0)",
     },
 
     echarts: {
-      bg: "rgb(250, 250, 250)",
-      textColor: "rgb(22, 21, 21)",
-      axisLineColor: "rgb(136, 136, 136)",
-      splitLineColor: "rgb(226, 224, 224)",
-      itemHoverShadowColor: "rgba(201, 162, 39, 0.3)",
-      tooltipBackgroundColor: "rgb(201, 162, 39)",
+      bg: "#FFFDF7",
+      textColor: "#451A03",
+      axisLineColor: "#92400E",
+      splitLineColor: "#FEF3C7",
+      itemHoverShadowColor: "rgba(180, 83, 9, 0.25)",
+      tooltipBackgroundColor: "#B45309",
     },
 
     chartjs: {
-      axisLineColor: "rgb(226, 224, 224)",
-      textColor: "rgb(22, 21, 21)",
+      axisLineColor: "#FDE68A",
+      textColor: "#451A03",
     },
   },
 };

@@ -17,22 +17,35 @@ const useThemeVariables = (currentTheme: Theme, themeName: ThemeEnum) => {
 
     // 主色与语义色 / Primary and semantic colors
     root.style.setProperty("--color-primary", vars.primary);
+    root.style.setProperty("--color-primary-hover", vars.primaryHover);
     root.style.setProperty("--color-primary-light", vars.primaryLight);
+    root.style.setProperty("--color-primary-bg", vars.primaryBg);
+    root.style.setProperty("--color-primary-rgb", vars.primaryRgb);
+    root.style.setProperty("--color-primary-transparent", vars.primaryTransparent);
+    root.style.setProperty("--color-primary-alpha", vars.primaryTransparent);
     root.style.setProperty("--color-primary-fg", vars.primaryFg);
     root.style.setProperty("--color-success", vars.success);
     root.style.setProperty("--color-success-light", vars.successLight);
+    root.style.setProperty("--color-success-rgb", vars.successRgb);
     root.style.setProperty("--color-info", vars.info);
     root.style.setProperty("--color-info-light", vars.infoLight);
+    root.style.setProperty("--color-info-rgb", vars.infoRgb);
     root.style.setProperty("--color-warning", vars.warning);
     root.style.setProperty("--color-warning-light", vars.warningLight);
+    root.style.setProperty("--color-warning-rgb", vars.warningRgb);
     root.style.setProperty("--color-danger", vars.danger);
     root.style.setProperty("--color-danger-light", vars.dangerLight);
+    root.style.setProperty("--color-danger-rgb", vars.dangerRgb);
+    root.style.setProperty("--color-error", vars.danger);
+    root.style.setProperty("--color-error-rgb", vars.dangerRgb);
 
     // 背景色 / Background
     root.style.setProperty("--color-bg", vars.bg);
+    root.style.setProperty("--color-bg-1", vars.bg);
     root.style.setProperty("--color-bg-2", vars.bg2);
     root.style.setProperty("--color-bg-3", vars.bg3);
     root.style.setProperty("--color-bg-4", vars.bg4);
+    root.style.setProperty("--color-bg-secondary", vars.bgSecondary);
 
     // 边框色 / Border
     root.style.setProperty("--color-border", vars.border);
@@ -40,14 +53,28 @@ const useThemeVariables = (currentTheme: Theme, themeName: ThemeEnum) => {
     root.style.setProperty("--color-border-3", vars.border3);
     root.style.setProperty("--color-border-4", vars.border4);
     root.style.setProperty("--color-border-5", vars.border5);
+    root.style.setProperty("--color-border-hover", vars.borderHover);
 
     // 文字色 / Foreground text
     root.style.setProperty("--color-fg", vars.fg);
     root.style.setProperty("--color-fg-text", vars.fgText);
     root.style.setProperty("--color-fg-heading", vars.fgHeading);
     root.style.setProperty("--color-fg-highlight", vars.fgHighlight);
+    root.style.setProperty("--color-fg-muted", vars.fgMuted);
     root.style.setProperty("--color-fg-on-primary", vars.fgOnPrimary);
     root.style.setProperty("--color-separator", vars.separator);
+
+    // 遮罩 / 阴影 / 焦点环
+    root.style.setProperty("--color-overlay", vars.overlay);
+    root.style.setProperty("--color-shadow", vars.shadow);
+    root.style.setProperty("--color-ring", vars.ring);
+
+    // 通用图表系列色
+    root.style.setProperty("--color-chart-1", vars.chart1);
+    root.style.setProperty("--color-chart-2", vars.chart2);
+    root.style.setProperty("--color-chart-3", vars.chart3);
+    root.style.setProperty("--color-chart-4", vars.chart4);
+    root.style.setProperty("--color-chart-5", vars.chart5);
 
     // 基础变量（圆角等）/ Base (radius, etc.)
     root.style.setProperty("--radius-button", `${base.buttonRadius}px`);
