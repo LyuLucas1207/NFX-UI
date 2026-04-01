@@ -89,9 +89,9 @@ export default defineConfig({
     react(),
     dts({
       include: ["src"],
+      exclude: ["**/*.json"],
       outDir: "dist",
       tsconfigPath: "./tsconfig.app.json",
-      rollupTypes: true,
     }),
     cssInjectedByJsPlugin({
       // 多入口时：仅对每个入口自己的 .mjs/.cjs 注入该入口打包到的 CSS，chunk 不注入。

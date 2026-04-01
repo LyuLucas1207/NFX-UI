@@ -1,6 +1,6 @@
 {
   "name": "nfx-ui",
-  "version": "0.7.4",
+  "version": "0.8.0",
   "type": "module",
   "sideEffects": false,
   "description": "Unified frontend UI library for the NFX product family: shared React components, design tokens, theme variables, and layout primitives for a consistent look and behavior across NFX console and other apps.",
@@ -14,103 +14,103 @@
   },
   "exports": {
     "./themes": {
-      "types": "./dist/themes.d.ts",
+      "types": "./dist/src/themes/index.d.ts",
       "import": "./dist/themes.mjs",
       "require": "./dist/themes.cjs",
       "default": "./dist/themes.mjs"
     },
     "./layouts": {
-      "types": "./dist/layouts.d.ts",
+      "types": "./dist/src/designs/layouts/index.d.ts",
       "import": "./dist/layouts.mjs",
       "require": "./dist/layouts.cjs",
       "default": "./dist/layouts.mjs"
     },
     "./components": {
-      "types": "./dist/components.d.ts",
+      "types": "./dist/src/designs/components/index.d.ts",
       "import": "./dist/components.mjs",
       "require": "./dist/components.cjs",
       "default": "./dist/components.mjs"
     },
     "./animations": {
-      "types": "./dist/animations.d.ts",
+      "types": "./dist/src/designs/animations/index.d.ts",
       "import": "./dist/animations.mjs",
       "require": "./dist/animations.cjs",
       "default": "./dist/animations.mjs"
     },
     "./hooks": {
-      "types": "./dist/hooks.d.ts",
+      "types": "./dist/src/hooks/index.d.ts",
       "import": "./dist/hooks.mjs",
       "require": "./dist/hooks.cjs",
       "default": "./dist/hooks.mjs"
     },
     "./preference": {
-      "types": "./dist/preference.d.ts",
+      "types": "./dist/src/preference/index.d.ts",
       "import": "./dist/preference.mjs",
       "require": "./dist/preference.cjs",
       "default": "./dist/preference.mjs"
     },
     "./stores": {
-      "types": "./dist/stores.d.ts",
+      "types": "./dist/src/stores/index.d.ts",
       "import": "./dist/stores.mjs",
       "require": "./dist/stores.cjs",
       "default": "./dist/stores.mjs"
     },
     "./apis": {
-      "types": "./dist/apis.d.ts",
+      "types": "./dist/src/apis/index.d.ts",
       "import": "./dist/apis.mjs",
       "require": "./dist/apis.cjs",
       "default": "./dist/apis.mjs"
     },
     "./events": {
-      "types": "./dist/events.d.ts",
+      "types": "./dist/src/events/index.d.ts",
       "import": "./dist/events.mjs",
       "require": "./dist/events.cjs",
       "default": "./dist/events.mjs"
     },
     "./services": {
-      "types": "./dist/services.d.ts",
+      "types": "./dist/src/services/index.d.ts",
       "import": "./dist/services.mjs",
       "require": "./dist/services.cjs",
       "default": "./dist/services.mjs"
     },
     "./navigations": {
-      "types": "./dist/navigations.d.ts",
+      "types": "./dist/src/navigations/index.d.ts",
       "import": "./dist/navigations.mjs",
       "require": "./dist/navigations.cjs",
       "default": "./dist/navigations.mjs"
     },
     "./types": {
-      "types": "./dist/types.d.ts",
+      "types": "./dist/src/types/index.d.ts",
       "import": "./dist/types.mjs",
       "require": "./dist/types.cjs",
       "default": "./dist/types.mjs"
     },
     "./utils": {
-      "types": "./dist/utils.d.ts",
+      "types": "./dist/src/utils/index.d.ts",
       "import": "./dist/utils.mjs",
       "require": "./dist/utils.cjs",
       "default": "./dist/utils.mjs"
     },
     "./constants": {
-      "types": "./dist/constants.d.ts",
+      "types": "./dist/src/constants/index.d.ts",
       "import": "./dist/constants.mjs",
       "require": "./dist/constants.cjs",
       "default": "./dist/constants.mjs"
     },
     "./languages": {
-      "types": "./dist/languages.d.ts",
+      "types": "./dist/src/languages/index.d.ts",
       "import": "./dist/languages.mjs",
       "require": "./dist/languages.cjs",
       "default": "./dist/languages.mjs"
     },
     "./icons": {
-      "types": "./dist/icons.d.ts",
+      "types": "./dist/src/icons/index.d.ts",
       "import": "./dist/icons.mjs",
       "require": "./dist/icons.cjs",
       "default": "./dist/icons.mjs"
     },
     "./pixel-blast": {
-      "types": "./dist/pixel-blast.d.ts",
+      "types": "./dist/src/designs/animations/PixelBlast/index.d.ts",
       "import": "./dist/pixel-blast.mjs",
       "require": "./dist/pixel-blast.cjs",
       "default": "./dist/pixel-blast.mjs"
@@ -216,9 +216,6 @@
   "overrides": {
     "vite": "^8.0.3",
     "esbuild": "^0.27.4",
-    "minimatch": "^10.2.4",
-    "@microsoft/api-extractor": {
-      "typescript": "~6.0.2"
-    }
+    "minimatch": "^10.2.4"
   }
 }
