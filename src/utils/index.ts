@@ -21,4 +21,5 @@ export * from "./safe";
 export * from "./singleton";
 export * from "./suspense";
 export * from "./time";
+export * from "./random";
 export * from "./types";

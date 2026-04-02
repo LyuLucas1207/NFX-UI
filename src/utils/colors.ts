@@ -95,3 +95,10 @@ export const interpolateColor = (start: string, end: string, factor: number): st
   const b = Math.round(b1 + (b2 - b1) * factor);
   return `rgb(${r}, ${g}, ${b})`;
 };
+
+/**
+ * Pick one color from a string pool; fallback to white.
+ */
+export const pickColor = (pool: string[]): string => {
+  return pool[Math.floor(Math.random() * pool.length)] || "#ffffff";
+};
