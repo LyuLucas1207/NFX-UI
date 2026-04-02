@@ -10,7 +10,10 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 
 import { getDefaultNfxBundles } from "../resources";
-import { LanguageEnum } from "../types";
+import { LanguageEnum, LANGUAGE_STORAGE_KEY, LANGUAGE_VALUES } from "../types";
+import { setLanguageStorage } from "../utils/languageStorage";
+
+let languagePersistAttached = false;
 
 /**
  * 初始化 i18n。会先合并 NFX-UI 自带的四类 JSON（theme/language/layout/preference），再与用户传入的 bundles 合并（用户可覆盖）。
@@ -33,6 +36,18 @@ export function initI18n(options: InitI18nOptions): void {
   );
   const NAME_SPACES = [...user.NAME_SPACES, ...nfx.NAME_SPACES.filter((n) => !user.NAME_SPACES.includes(n))];
 
+  const persistLanguage = (lng: string) => {
+    const base = lng.split("-")[0]?.toLowerCase() ?? "";
+    if ((LANGUAGE_VALUES as readonly string[]).includes(base)) {
+      setLanguageStorage(base as LanguageEnum);
+    }
+  };
+
+  if (!languagePersistAttached) {
+    i18n.on("languageChanged", persistLanguage);
+    languagePersistAttached = true;
+  }
+
   i18n
     .use(LanguageDetector)
     .use(initReactI18next)
@@ -45,7 +60,11 @@ export function initI18n(options: InitI18nOptions): void {
       defaultNS: NAME_SPACES[0],
       interpolation: { escapeValue: false },
       keySeparator: ".",
-      detection: { order: ["navigator", "htmlTag", "path", "subdomain"] },
+      detection: {
+        order: ["localStorage", "navigator", "htmlTag", "path", "subdomain"],
+        lookupLocalStorage: LANGUAGE_STORAGE_KEY,
+        caches: ["localStorage"],
+      },
     });
 
   const onLoad = options.onLoadExtraBundles;

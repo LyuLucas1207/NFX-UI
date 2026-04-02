@@ -5,6 +5,7 @@
 import type { CreateI18nResourcesResult, LanguageEnum, NameSpacesMap, Resources } from "../types";
 
 import i18n from "./i18n";
+import { setLanguageStorage } from "../utils/languageStorage";
 
 /**
  * 由调用方传入 resources 和 nameSpacesMap，生成 i18n 所需的 RESOURCES、NAME_SPACES_MAP、NAME_SPACES。
@@ -21,9 +22,10 @@ function createI18nResources(resources: Resources, nameSpacesMap: NameSpacesMap)
   };
 }
 
-/** 切换当前语言。Switch current language. */
+/** 切换当前语言并写入 `language-storage`，刷新后保持一致。Persists choice for reloads. */
 function changeLanguage(lng: LanguageEnum): void {
-  i18n.changeLanguage(lng);
+  setLanguageStorage(lng);
+  void i18n.changeLanguage(lng);
 }
 
 export { createI18nResources, changeLanguage };
