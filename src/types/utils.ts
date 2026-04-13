@@ -51,7 +51,7 @@ type Objectable<T extends Record<string, unknown>> = T | {};
  * Arrayable: T[] | []，T 为数组元素类型。
  * @example Arrayable<string> => string[] | []
  */
-type Arrayable<T> = Array<T> | [];
+type Arrayable<T> = Array<T> | T[];
 
 /**
  * 存在性结果元组：有值时为 [T, true]，无值时为 [null, false]。用于区分「有值」与「无」而不依赖 undefined。

@@ -46,9 +46,15 @@ export function safeNilable<T extends string>(value: Emptyable<T>): Nilable<T> {
  * @returns value ?? defaultValue ?? [] (never null/undefined)
  * @example safeArray(product.tags) // product.tags ?? []
  * @example safeArray(product.tags, ['default'])
+ *
+ * 参数使用 `Array&lt;T&gt;`（即 `T[]`，见 `@/types`）与全库类型别名一致；入参也接受 `readonly T[]`，便于兼容只读数组来源。
  */
-export function safeArray<T>(value: Nilable<Array<T>>, defaultValue?: Array<T>): Array<T> {
-  return (value ?? defaultValue ?? []) as Array<T>;
+export function safeArray<T>(value: Nilable<Array<T> | readonly T[]>, defaultValue?: Array<T>): Array<T> {
+  const resolved = value ?? defaultValue;
+  if (resolved === undefined) {
+    return [] as Array<T>;
+  }
+  return resolved as Array<T>;
 }
 
 /**
@@ -82,7 +88,12 @@ export function safeStringable<T extends string>(value: Emptyable<T>): Stringabl
  * @returns value ?? defaultValue
  * @example safeOr(product.stock, 0)
  * @example safeOr(product.name, '')
+ *
+ * 使用两个类型参数时，若第一个实参无法收窄（例如索引访问、宽泛的 Record），`T` 可能被推断为 `unknown`，结果变成 `unknown`。
+ * 因此提供**单类型**重载：当 `defaultValue` 与「有值时」的类型一致时，应写 `safeOr(x, fallback)` 且两者同型，返回即为 `T`。
  */
+export function safeOr<T>(value: Nilable<T>, defaultValue: T): T;
+export function safeOr<T, D>(value: Nilable<T>, defaultValue: D): T | D;
 export function safeOr<T, D>(value: Nilable<T>, defaultValue: D): T | D {
   return value ?? defaultValue;
 }
