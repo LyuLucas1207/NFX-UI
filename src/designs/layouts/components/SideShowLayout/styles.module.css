@@ -41,11 +41,4 @@
   .content {
     width: 100%;
   }
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    z-index: 999;
-  }
 }

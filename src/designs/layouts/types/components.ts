@@ -78,6 +78,8 @@ export interface SidebarProps extends ProSidebarProps {
   handleLogout?: () => void;
   /** Bottom Logout Button. */
   bottomLogoutButton?: ReactNode;
+  /** Header height. */
+  headerHeight?: number;
 }
 
 /** MainWrapper props. */
