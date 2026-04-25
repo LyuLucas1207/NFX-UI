@@ -50,11 +50,11 @@ export interface VirtualWindowListProps<T> extends Partial<
   /** 列表底指示器。End of list indicator node. */
   endOfListIndicator?: ReactNode;
   /** 空状态文案（未提供 emptyState 时）。Empty text. */
-  emptyText?: string;
+  emptyText?: ReactNode;
   /** 加载更多文案。Loading more text. */
-  loadingMoreText?: string;
+  loadingMoreText?: ReactNode;
   /** 列表底文案。End of list text. */
-  endOfListText?: string;
+  endOfListText?: ReactNode;
   /** 列表项容器 className。Flex container class. */
   flexClass?: string;
   /** 外层容器 className。Outer class. */

@@ -9,6 +9,8 @@
  * <Slider label="音量" value={volume} onChange={setVolume} showValue helperText="0-100" />
  * ```
  */
+import type { ReactNode } from "react";
+
 import { forwardRef, memo, useEffect, useRef, useState } from "react";
 import { animate, motion, useMotionValue, useMotionValueEvent, useTransform } from "motion/react";
 
@@ -34,11 +36,11 @@ export interface SliderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 
   /** 是否占满宽度。Full width. */
   fullWidth?: boolean;
   /** 标签文案。Label text. */
-  label?: string;
+  label?: ReactNode;
   /** 错误信息。Error message. */
-  error?: string;
+  error?: ReactNode;
   /** 辅助说明。Helper text. */
-  helperText?: string;
+  helperText?: ReactNode;
   /** 是否必填。Required. */
   required?: boolean;
 }

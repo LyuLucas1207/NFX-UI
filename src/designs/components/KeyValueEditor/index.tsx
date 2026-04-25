@@ -10,6 +10,8 @@
  * <KeyValueEditor label="标签" pairs={pairs} onChange={setPairs} valueType="array" />
  * ```
  */
+import type { ReactNode } from "react";
+
 import { memo, useEffect, useState } from "react";
 
 import Button from "@/designs/components/Button";
@@ -27,7 +29,7 @@ export interface KeyValuePair {
 
 export interface KeyValueEditorProps {
   /** 表单项标签。Field label. */
-  label: string;
+  label: ReactNode;
   /** 键值对列表。Key-value pairs. */
   pairs: KeyValuePair[];
   /** 列表变化回调。Change callback. */
@@ -43,9 +45,9 @@ export interface KeyValueEditorProps {
   /** 删除按钮 aria-label。Remove button aria-label. */
   removeAriaLabel?: string;
   /** 新增按钮文案。Add button label. */
-  addLabel?: string;
+  addLabel?: ReactNode;
   /** 错误信息。Error message. */
-  error?: string;
+  error?: ReactNode;
 }
 
 const KeyValueEditor = memo(

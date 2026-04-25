@@ -8,6 +8,8 @@
  * <ShowFilter value={filter} onChange={setFilter} all={t("showFilter.all")} show={t("showFilter.show")} hide={t("showFilter.hide")} />
  * ```
  */
+import type { ReactNode } from "react";
+
 import { memo } from "react";
 
 import { Eye, EyeOff, Filter } from "@/icons/lucide";
@@ -27,19 +29,19 @@ export interface ShowFilterProps {
   /** 值变化回调。Change callback. */
   onChange: (value: ShowFilterValue) => void;
   /** 筛选开启时的按钮文案。Label when filter enabled. */
-  filterEnabled?: string;
+  filterEnabled?: ReactNode;
   /** 筛选关闭时的按钮文案。Label when filter disabled. */
-  filterDisabled?: string;
+  filterDisabled?: ReactNode;
   /** 开启筛选按钮的 aria-label。Aria-label for enable filter button. */
   enableFilterAriaLabel?: string;
   /** 关闭筛选按钮的 aria-label。Aria-label for disable filter button. */
   disableFilterAriaLabel?: string;
   /** 「全部」选项文案。Label for "all" option. */
-  all?: string;
+  all?: ReactNode;
   /** 「显示」选项文案。Label for "show" option. */
-  show?: string;
+  show?: ReactNode;
   /** 「隐藏」选项文案。Label for "hide" option. */
-  hide?: string;
+  hide?: ReactNode;
 }
 
 const ShowFilter = memo(

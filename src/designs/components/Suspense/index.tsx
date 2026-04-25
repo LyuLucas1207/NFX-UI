@@ -33,7 +33,7 @@ interface LoadingFallbackProps {
   /** 加载图形形状。Loading shape. */
   loadingShape?: "square" | "circle";
   /** 加载中文案。Loading text. */
-  loadingText?: string;
+  loadingText?: ReactNode;
   /** 加载图尺寸。Loading size. */
   loadingSize?: "small" | "medium" | "large";
   /** 容器 className。Container className. */
@@ -52,15 +52,15 @@ interface ErrorFallbackProps {
   /** 自定义错误 UI。Custom error UI. */
   errorFallback?: (args: { error: Error | null; retry: () => void }) => ReactNode;
   /** 错误标题。Error title. */
-  errorTitle?: string;
+  errorTitle?: ReactNode;
   /** 错误描述。Error description. */
-  errorDescription?: string;
+  errorDescription?: ReactNode;
   /** 重试按钮文案。Retry button text. */
-  retryText?: string;
+  retryText?: ReactNode;
   /** 详情折叠文案。Error details summary text. */
-  errorDetailsText?: string;
+  errorDetailsText?: ReactNode;
   /** 清除本地数据按钮文案。Clear local data button text. */
-  clearLocalDataText?: string;
+  clearLocalDataText?: ReactNode;
   /** 点击「清除本地数据」后执行（如跳转登录页），由调用方传入。Called after clear local data (e.g. navigate to login); pass from caller. */
   onClearLocalData?: () => void;
   /** 错误容器 className。Error container className. */
@@ -81,7 +81,7 @@ export interface SuspenseProps extends Omit<ReactSuspenseProps, "fallback">, Omi
   /** 加载图形形状。Loading shape. */
   loadingShape?: "square" | "circle";
   /** 加载中文案，由调用方传入。Loading text; pass from caller (e.g. i18n). */
-  loadingText?: string;
+  loadingText?: ReactNode;
   /** 加载图尺寸。Loading size. */
   loadingSize?: "small" | "medium" | "large";
   /** 加载容器 className。Loading container className. */
@@ -93,15 +93,15 @@ export interface SuspenseProps extends Omit<ReactSuspenseProps, "fallback">, Omi
   /** 自定义错误 UI。Custom error fallback. */
   errorFallback?: (args: { error: Error | null; retry: () => void }) => ReactNode;
   /** 错误标题，由调用方传入。Error title; pass from caller. */
-  errorTitle?: string;
+  errorTitle?: ReactNode;
   /** 错误描述，由调用方传入。Error description; pass from caller. */
-  errorDescription?: string;
+  errorDescription?: ReactNode;
   /** 重试按钮文案，由调用方传入。Retry text; pass from caller. */
-  retryText?: string;
+  retryText?: ReactNode;
   /** 错误详情折叠文案。Error details text. */
-  errorDetailsText?: string;
+  errorDetailsText?: ReactNode;
   /** 清除本地数据按钮文案。Clear local data text. */
-  clearLocalDataText?: string;
+  clearLocalDataText?: ReactNode;
   /** 点击「清除本地数据」后执行（如跳转登录页），由调用方传入。Called after clear local data (e.g. navigate to login); pass from caller. */
   onClearLocalData?: () => void;
   /** 错误容器 className。Error container className. */

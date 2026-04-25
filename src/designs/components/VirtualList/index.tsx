@@ -44,11 +44,11 @@ export interface VirtualListProps<T> extends Partial<
   /** 列表底指示器。End of list indicator node. */
   endOfListIndicator?: ReactNode;
   /** 当未提供 emptyState 时使用的文案，由调用方传入。Text when no data; used when emptyState not provided. */
-  emptyText?: string;
+  emptyText?: ReactNode;
   /** 当未提供 loadingIndicator 时使用的文案。Text when loading more. */
-  loadingMoreText?: string;
+  loadingMoreText?: ReactNode;
   /** 当未提供 endOfListIndicator 时使用的文案。Text at end of list. */
-  endOfListText?: string;
+  endOfListText?: ReactNode;
   /** 列表项容器 className。Flex container class. */
   flexClass?: string;
   /** 外层容器 className。Outer class. */
