@@ -16,6 +16,7 @@ const SideHideLayout = memo(
     onSidebarNavigate,
     sidebarLogoutLabel,
     onSidebarLogout,
+    bottomLogoutButton,
   }: SideHideLayoutProps) => {
     const { sidebarOpen, closeSidebar } = useLayout();
 
@@ -24,6 +25,27 @@ const SideHideLayout = memo(
     }, [closeSidebar]);
 
     return (
+      <>
+        <div
+          className={styles.sidebarChrome}
+          style={{
+            top: `${headerHeight}px`,
+            height: `calc(100vh - ${headerHeight + footerHeight}px)`,
+          }}
+        >
+          <Sidebar
+            toggled={sidebarOpen}
+            onBackdropClick={handleBackdropClick}
+            breakPoint="all"
+            className={styles.sidebar}
+            items={sidebarItems}
+            currentPathname={sidebarCurrentPathname}
+            onNavigate={onSidebarNavigate}
+            logoutLabel={sidebarLogoutLabel}
+            handleLogout={onSidebarLogout}
+            bottomLogoutButton={bottomLogoutButton}
+          />
+        </div>
       <main
         className={styles.mainWrapper}
         style={{
@@ -31,21 +53,11 @@ const SideHideLayout = memo(
           marginBottom: `${footerHeight}px`,
         }}
       >
-        <Sidebar
-          toggled={sidebarOpen}
-          onBackdropClick={handleBackdropClick}
-          breakPoint="all"
-          className={styles.sidebar}
-          items={sidebarItems}
-          currentPathname={sidebarCurrentPathname}
-          onNavigate={onSidebarNavigate}
-          logoutLabel={sidebarLogoutLabel}
-          handleLogout={onSidebarLogout}
-        />
         <div className={styles.content} data-lenis-prevent>
           {children}
         </div>
       </main>
+      </>
     );
   },
 );

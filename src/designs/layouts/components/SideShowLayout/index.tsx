@@ -42,6 +42,7 @@ const SideShowLayout = memo(
     onSidebarNavigate,
     sidebarLogoutLabel,
     onSidebarLogout,
+    bottomLogoutButton,
   }: SideShowLayoutProps) => {
     const { sidebarOpen, closeSidebar } = useLayout();
     const [sidebarRef, sidebarWidth] = useElementWidth<HTMLDivElement>();
@@ -56,8 +57,9 @@ const SideShowLayout = memo(
           ref={sidebarRef}
           className={styles.sidebarContainer}
           style={{
-            // marginTop: `${headerHeight}px`,
-            height: `calc(100vh - ${headerHeight + footerHeight}px)`,
+            top: `${headerHeight}px`,
+            bottom: `${footerHeight}px`,
+            height: `calc(100vh - ${footerHeight + headerHeight}px)`,
           }}
         >
           <Sidebar
@@ -71,7 +73,7 @@ const SideShowLayout = memo(
             onNavigate={onSidebarNavigate}
             logoutLabel={sidebarLogoutLabel}
             handleLogout={onSidebarLogout}
-            headerHeight={headerHeight}
+            bottomLogoutButton={bottomLogoutButton}
           />
         </div>
         <main

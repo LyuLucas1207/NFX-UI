@@ -41,7 +41,6 @@ const Sidebar = memo(
     logoutLabel = "Logout",
     handleLogout,
     bottomLogoutButton,
-    headerHeight,
   }: SidebarProps) => {
     const handleItemClick = useCallback(
       (path: string) => {
@@ -131,7 +130,6 @@ const Sidebar = memo(
         backgroundColor="var(--color-bg-2)"
         rootStyles={{
           border: "none",
-          marginTop: `${headerHeight}px`,
           borderRight: "1px solid var(--color-separator)",
         }}
         className={`${styles.sidebar} ${className || ""}`}
