@@ -41,6 +41,8 @@ const Sidebar = memo(
     logoutLabel = "Logout",
     handleLogout,
     bottomLogoutButton,
+    headerHeight = 0,
+    footerHeight = 0,
   }: SidebarProps) => {
     const handleItemClick = useCallback(
       (path: string) => {
@@ -131,12 +133,15 @@ const Sidebar = memo(
         rootStyles={{
           border: "none",
           borderRight: "1px solid var(--color-separator)",
+          marginTop: `${headerHeight}px`,
+          marginBottom: `${footerHeight}px`,
+          height: `calc(100vh - ${footerHeight + headerHeight}px) !important`,
         }}
         className={`${styles.sidebar} ${className || ""}`}
       >
         <div className={styles.sidebarContent} onWheel={(e) => e.stopPropagation()}>
           <div className={styles.menuWrapper}>{children ?? menuContent}</div>
-          {bottomLogoutButtonContent}
+          {bottomLogoutButtonContent != null ? <div className={styles.sidebarFooter}>{bottomLogoutButtonContent}</div> : null}
         </div>
       </ProSidebar>
     );

@@ -57,9 +57,11 @@ const SideShowLayout = memo(
           ref={sidebarRef}
           className={styles.sidebarContainer}
           style={{
-            top: `${headerHeight}px`,
-            bottom: `${footerHeight}px`,
-            height: `calc(100vh - ${footerHeight + headerHeight}px)`,
+            // top: `${headerHeight}px`,
+            // bottom: `${footerHeight}px`,
+            // marginTop: `${headerHeight}px`,
+            // marginBottom: `${footerHeight}px`,
+            height: `100%`,
           }}
         >
           <Sidebar
@@ -74,6 +76,8 @@ const SideShowLayout = memo(
             logoutLabel={sidebarLogoutLabel}
             handleLogout={onSidebarLogout}
             bottomLogoutButton={bottomLogoutButton}
+            headerHeight={headerHeight}
+            footerHeight={footerHeight}
           />
         </div>
         <main
