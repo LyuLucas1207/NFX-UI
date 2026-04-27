@@ -1,6 +1,6 @@
 {
   "name": "nfx-ui",
-  "version": "0.14.3",
+  "version": "0.15.0",
   "type": "module",
   "sideEffects": false,
   "description": "Unified frontend UI library for the NFX product family: shared React components, design tokens, theme variables, and layout primitives for a consistent look and behavior across NFX console and other apps.",
