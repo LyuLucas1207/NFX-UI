@@ -2,15 +2,15 @@ import type { BaseTheme, BaseVariables } from "../../types";
 
 import { BaseEnum } from "../../types";
 
-/** iOS 风格圆角（较大，如 24） */
+/** iOS 风格圆角（偏大，贴近系统控件 / sheet 的圆滑感） */
 export const iosBaseVariables: BaseVariables = {
   radius: {
-    button: 12,
-    card: 20,
-    input: 12,
-    modal: 24,
+    button: 16,
+    card: 28,
+    input: 16,
+    modal: 34,
     badge: 999,
-    avatar: 18,
+    avatar: 22,
   },
 
   spacing: {
