@@ -130,6 +130,21 @@
   font-weight: 500 !important;
 }
 
+/* 折叠态：只显示图标，彻底隐藏文字与展开箭头，避免残字溢出 */
+.sidebar :global(.ps-sidebar-root.ps-collapsed .ps-menu-label),
+.sidebar :global(.ps-sidebar-root.ps-collapsed .ps-submenu-expand-icon),
+.sidebar :global(.ps-sidebar-root.ps-collapsed .ps-menu-suffix) {
+  display: none !important;
+}
+
+.sidebar :global(.ps-sidebar-root.ps-collapsed .ps-menu-button) {
+  justify-content: center !important;
+}
+
+.sidebar :global(.ps-sidebar-root.ps-collapsed .ps-menu-icon) {
+  margin-right: 0 !important;
+}
+
 /* 选中态：主色上的前景（与 themes primaryFg 一致） */
 .sidebar :global(.ps-menu-button.ps-active),
 .sidebar :global(.ps-menu-button.ps-active span),
