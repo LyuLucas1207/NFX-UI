@@ -4,6 +4,11 @@
   max-width: 400px;
 }
 
+/** 占满父级（如 dialog / modal 内容区），不受 400px 上限 */
+.searchContainerFull {
+  max-width: none;
+}
+
 .searchIcon {
   position: absolute;
   left: 1rem;
